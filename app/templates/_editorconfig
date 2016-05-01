@@ -1,0 +1,13 @@
+root = true
+
+[*]
+indent_style = space
+end_of_line = lf
+charset = utf-8
+trim_trailing_whitespace = true
+
+[*.{js,css,html,scss}]
+indent_size = 2
+
+[*.py]
+indent_size = 4

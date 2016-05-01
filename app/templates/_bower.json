@@ -1,0 +1,26 @@
+{
+  "name": "<%= projectName %>",
+  "description": "<%= description %>",
+  "version": "0.1.0",
+  "main": "",
+  "authors": [
+    {
+      "name": "<%= name %>",
+      "email": "<%= email %>"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "static/bower_components",
+    "static/bower_dependencies",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "normalize-css": "normalize.css#^4.1.1"
+  }
+}

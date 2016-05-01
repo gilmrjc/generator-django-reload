@@ -1,0 +1,58 @@
+.main-menu {
+  nav {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      @include medium-media {
+        li {
+          display: inline;
+        }
+      }
+    }
+
+    a {
+      display: block;
+      margin-bottom: 10px;
+      padding: 15px;
+      text-align: center;
+      text-decoration: none;
+      font-weight: bold;
+      color: #FFF;
+      background: #e44d26;
+
+      &:hover,
+      &:visited {
+        color: #FFF
+      }
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      @include medium-media {
+        float: left;
+        width: 27%;
+        margin: 0 1.7%;
+        padding: 25px 2%;
+        margin-bottom: 0;
+      }
+    }
+  
+    @include medium-media {
+      li:first-child a {
+        margin-left: 0;
+      }
+
+      li:last-child a {
+        margin-right: 0;
+      }
+    }
+    
+    @include big-media {
+      float: right;
+      width: 38%;
+    }
+  }
+}
