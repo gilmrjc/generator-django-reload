@@ -6,3 +6,4 @@ assets
 libs
 *.swp
 .sass-cache
+.venv
