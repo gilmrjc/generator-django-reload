@@ -1,5 +1,5 @@
 from django.apps import AppConfig
 
 
-class HtmlMinifyConfig(AppConfig):
+class MinihtmlConfig(AppConfig):
     name = 'minihtml'

@@ -167,6 +167,10 @@ module.exports = yeoman.Base.extend({
         this.templatePath('minihtml/middleware.py'),
         this.destinationPath('minihtml/middleware.py')
       );
+      this.fs.copy(
+        this.templatePath('minihtml/__init__.py'),
+        this.destinationPath('minihtml/__init__.py')
+      );
     },
 
     templates: function() {
@@ -287,7 +291,7 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('requirements/production.txt')
       );
     },
-    
+
     dirs: function () {
       mkdirp('static/img');
       mkdirp('static/css');
@@ -299,7 +303,7 @@ module.exports = yeoman.Base.extend({
   install: {
     pip: function () {
       var done = this.async();
-      
+
       if (!this.options.skipInstall) {
         this.log(chalk.magenta('Installing pip dependencies...'));
         this.spawnCommand('pip', [
