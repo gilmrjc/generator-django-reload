@@ -9,6 +9,14 @@ html {
   box-sizing: inherit;
 }
 
+a {
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 audio,
 canvas,
 iframe,

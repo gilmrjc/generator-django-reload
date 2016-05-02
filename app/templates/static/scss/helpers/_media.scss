@@ -4,14 +4,14 @@
   }
 }
 
-@mixin big-media {
-  @media only screen and (min-width: $big) {
+@mixin large-media {
+  @media only screen and (min-width: $large) {
     @content;
   }
 }
 
-@mixin extra-big-media {
-  @media only screen and (min-width: $extra-big) {
+@mixin xlarge-media {
+  @media only screen and (min-width: $xlarge) {
     @content;
   }
 }

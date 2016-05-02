@@ -1,58 +1,118 @@
-.main-menu {
+body {
+  margin-top: 60px; //Space for the menu bar
+}
+
+#main-menu {
+  background: #F4421A;
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  left: 0;
+  top: 0;
+  
+  #menu-toggle {
+    position: relative;
+    overflow: hidden;
+    user-select: none;
+    width: 60px;
+    height: 55px;
+    float: right;
+    color: #FFF;
+
+    &:before {
+      font: normal 28px/55px FontAwesome;
+      text-align: center;
+      position: absolute;
+      text-indent: 0;
+      width: 100%;
+      left: 0;
+      top: 0;
+      content: "\f0c9";
+    }
+
+      &.active:before {
+        content: "\f00d";
+      }
+
+      @include medium-media {
+        display: none;
+      }
+    }
+
+
   nav {
+    position: absolute;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    zoom: 1;
+
+    &.closed {
+      max-height: 0;
+    }
+
+    &.opened {
+      max-height: 100%;
+    }
+
+    @include medium-media {
+      position: relative;
+      width: auto;
+      float: right;
+
+      &.closed {
+        max-height: none;
+      }
+    }
+
     ul {
       margin: 0;
       padding: 0;
+      display: block;
+      width: 100%;
       list-style-type: none;
+      float: left;
+
 
       @include medium-media {
-        li {
-          display: inline;
+        float: right;
+        width: auto;
+      }
+               
+      .menu-item {
+        width: 100%;
+        display: block;
+        float: left;
+
+        &.active {
+          background: #E22116;
+        }
+        @include medium-media {
+          width: auto;
         }
       }
     }
 
     a {
       display: block;
-      margin-bottom: 10px;
-      padding: 15px;
-      text-align: center;
-      text-decoration: none;
-      font-weight: bold;
+      border-top: 1px solid #FFF;
       color: #FFF;
-      background: #e44d26;
+      width: 100%;
+      padding: 0.7em 1em;
 
       &:hover,
       &:visited {
         color: #FFF
       }
 
-      &:hover {
-        text-decoration: underline;
-      }
-
       @include medium-media {
+        border-left: 1px solid #FFF;
+        padding: 1.02em 2em;
+        text-align: center;
+        border-top: 0;
         float: left;
-        width: 27%;
-        margin: 0 1.7%;
-        padding: 25px 2%;
-        margin-bottom: 0;
+        margin: 0;
       }
-    }
-  
-    @include medium-media {
-      li:first-child a {
-        margin-left: 0;
-      }
-
-      li:last-child a {
-        margin-right: 0;
-      }
-    }
-    
-    @include big-media {
-      float: right;
-      width: 38%;
     }
   }
 }

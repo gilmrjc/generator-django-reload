@@ -1,11 +1,12 @@
 {% load staticfiles %}
 <!DOCTYPE html>
-<html lang="es-mx">
+<html lang="es-MX">
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title><%= projectName %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
     {% if debug %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% else %}
@@ -15,19 +16,32 @@
     {% endblock %}
   </head>
   <body>
-  
-  {% block header %}
-  {% include 'header.html' %}
-  {% endblock%}
+ 
+    {% block header %}
+    {% include 'header.html' %}
+    {% endblock%}
 
-  {% block content %}
-  {% endblock %}
+    {% block content %}
+    {% endblock %}
 
-  {% block footer %}
-  {% include 'footer.html' %}
-  {% endblock%}
-  
-  {% block scripts %}
-  {% endblock%}
+    {% block footer %}
+    {% include 'footer.html' %}
+    {% endblock%}
+
+    <div id="mask"></div>
+    <script src="{% static 'js/menu.js' %}"></script>
+    {% block scripts %}
+    {% endblock %}
+    <script>
+      var mainMenu = window.menu({
+        open: function () {
+          document.getElementById('mask').classList.add('active');
+        },
+        
+        close: function () {
+          document.getElementById('mask').classList.remove('active');
+        }
+      });
+    </script>
   </body>
 </html>

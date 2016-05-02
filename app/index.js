@@ -183,6 +183,10 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('templates/header.html')
       );
       this.fs.copy(
+        this.templatePath('static/img/logo.png'),
+        this.destinationPath('static/img/logo.png')
+      );
+      this.fs.copy(
         this.templatePath('templates/footer.html'),
         this.destinationPath('templates/footer.html')
       );
@@ -234,6 +238,10 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('static/scss/components/_main-menu.scss')
       );
       this.fs.copy(
+        this.templatePath('static/scss/components/_mask.scss'),
+        this.destinationPath('static/scss/components/_mask.scss')
+      );
+      this.fs.copy(
         this.templatePath('static/scss/helpers/_helpers.scss'),
         this.destinationPath('static/scss/helpers/_helpers.scss')
       );
@@ -252,6 +260,13 @@ module.exports = yeoman.Base.extend({
       this.fs.copy(
         this.templatePath('static/scss/pages/_pages.scss'),
         this.destinationPath('static/scss/pages/_pages.scss')
+      );
+    },
+
+    scripts: function () {
+      this.fs.copy(
+        this.templatePath('static/js/menu.js'),
+        this.destinationPath('static/js/menu.js')
       );
     },
 

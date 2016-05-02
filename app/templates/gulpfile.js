@@ -24,8 +24,8 @@ gulp.task('styles-dev', function() {
     .pipe(plugins.autoprefixer({
       browsers: ['last 2 versions', 'not ie <= 8']
     }))
-    .pipe(plugins.addSrc.append('static/libs/**/*.css'))
-    .pipe(plugins.order(['normalize.css', '*']))
+    .pipe(plugins.addSrc.prepend('static/libs/**/*.css'))
+    .pipe(plugins.order(['**/normalize.css', '*']))
     .pipe(plugins.concat('style.css'))
     .pipe(plugins.sourcemaps.write())
     .pipe(gulp.dest('static/css'))
@@ -39,8 +39,8 @@ gulp.task('styles', function() {
     .pipe(plugins.autoprefixer({
       browsers: ['last 2 versions', 'not ie <= 8']
     }))
-    .pipe(plugins.addSrc.append('static/libs/**/*.css'))
-    .pipe(plugins.order(['normalize.css', '*']))
+    .pipe(plugins.addSrc.prepend('static/libs/**/*.css'))
+    .pipe(plugins.order(['**/normalize.css', '*']))
     .pipe(plugins.concat('style.css'))
     .pipe(gulp.dest('static/css'));
 });
