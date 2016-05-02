@@ -300,7 +300,7 @@ module.exports = yeoman.Base.extend({
     pip: function () {
       var done = this.async();
       
-      if (process.env.VIRTUAL_ENV) {
+      if (!this.options.skipInstall) {
         this.log(chalk.magenta('Installing pip dependencies...'));
         this.spawnCommand('pip', [
           'install',
@@ -309,8 +309,8 @@ module.exports = yeoman.Base.extend({
         ]).on('close', function () {
             this.spawnCommand('python', ['manage.py', 'migrate', '--noinput']);
           }.bind(this));
-        done();
       };
+      done();
     },
 
     normal: function () {
@@ -318,8 +318,10 @@ module.exports = yeoman.Base.extend({
     },
 
     git: function () {
-      this.log(chalk.yellow('Setting up git repo'));
-      this.spawnCommand('git', ['init']);
+      if (!this.options.skipInstall) {
+        this.log(chalk.yellow('Setting up git repo'));
+        this.spawnCommand('git', ['init']);
+      }
     }
   }
 });

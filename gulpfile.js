@@ -21,7 +21,7 @@ gulp.task('nsp', function (cb) {
 });
 
 gulp.task('pre-test', function () {
-  return gulp.src('app/**/*.js')
+  return gulp.src(['app/**/*.js','!app/templates/**'])
     .pipe(excludeGitignore())
     .pipe(istanbul({
       includeUntested: true
