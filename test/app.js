@@ -12,7 +12,7 @@ describe('generator-django-reload:app', function () {
 
   it('creates files', function () {
     assert.file([
-      'dummyfile.txt'
+      'gulpfile.js'
     ]);
   });
 });
