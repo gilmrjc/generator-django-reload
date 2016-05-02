@@ -5,8 +5,8 @@ var helpers = require('yeoman-test');
 
 describe('generator-django-reload:app', function () {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({someAnswer: true})
+    helpers.run(path.join(__dirname, '../app'))
+      .withPrompts({projectName: 'test', description: 'test', name: 'test', email: 'test@example.com'})
       .on('end', done);
   });
 
