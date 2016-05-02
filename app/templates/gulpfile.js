@@ -53,7 +53,7 @@ gulp.task('minify-css', ['styles'], function() {
 });
 
 gulp.task('eslint-dev', function() {
-  gulp.src(['static/js/*', '*/static/js/*'])
+  gulp.src(['static/js/**/*.js', '*/static/js/**/*.js'])
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.livereload());
@@ -64,6 +64,12 @@ gulp.task('eslint', function() {
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.eslint.failAfterError());
+});
+
+gulp.task('uglify', ['eslint'], function() {
+  return gulp.src(['static/js/**/*.js', '*/static/js/**/*.js'])
+    .pipe(plugins.uglify())
+    .pipe(gulp.dest('assets/js'));
 });
 
 gulp.task('watch', function() {
@@ -117,7 +123,7 @@ spawn('python', ['manage.py', 'livereload'], {
 gulp.task('build', plugins.sequence(
     'clean',
     'minify-css',
-    'eslint',
+    'uglify',
     'collectstatic'
     )
 );
