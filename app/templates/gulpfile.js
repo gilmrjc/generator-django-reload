@@ -53,7 +53,7 @@ gulp.task('minify-css', ['styles'], function() {
 });
 
 gulp.task('eslint-dev', function() {
-  gulp.src(['static/js/**/*.js', '*/static/js/**/*.js'])
+  return gulp.src(['static/js/**/*.js', '*/static/js/**/*.js'])
     .pipe(plugins.eslint())
     .pipe(plugins.eslint.format())
     .pipe(plugins.livereload());
@@ -73,13 +73,13 @@ gulp.task('uglify', ['eslint'], function() {
 });
 
 gulp.task('watch', function() {
-
   gulp.watch('static/scss/**/*.scss', ['styles-dev']);
   gulp.watch(['static/js/*', '*/static/js/*'], ['eslint-dev']);
+  gulp.watch(['templates/**/*.html', '*/templates/**/*.html']);
 });
 
 gulp.task('clean', function(callback) {
-  del(['static/css/*', 'assets/*/*']).then(function(paths) {
+  del('assets/*/*').then(function(paths) {
     callback();
   });
 });
@@ -124,6 +124,7 @@ gulp.task('build', plugins.sequence(
     'clean',
     'minify-css',
     'uglify',
+    'migrate',
     'collectstatic'
     )
 );
