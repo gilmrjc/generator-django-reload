@@ -10,10 +10,4 @@ describe('generator-django-reload:app', function () {
       .withPrompts({projectName: 'test', description: 'test', name: 'test', email: 'test@example.com'})
       .on('end', done);
   });
-
-  it('creates files', function () {
-    assert.file([
-      'gulpfile.js'
-    ]);
-  });
 });
