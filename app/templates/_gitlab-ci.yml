@@ -1,0 +1,7 @@
+image: python:3.4
+
+all_test:
+  script:
+    - sh ./sh_scripts/install.sh
+    - python3 manage.py test -k
+    - export

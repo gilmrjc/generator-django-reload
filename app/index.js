@@ -101,6 +101,10 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('.eslintrc.json')
       );
       this.fs.copy(
+        this.templatePath('_gitlab-ci.yml'),
+        this.destinationPath('.gitlab-ci.yml')
+      );
+      this.fs.copy(
         this.templatePath('gulpfile.js'),
         this.destinationPath('gulpfile.js')
       );
