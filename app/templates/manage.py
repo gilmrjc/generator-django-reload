@@ -12,6 +12,12 @@ if __name__ == "__main__":
         from livereload import Server
         application = get_wsgi_application()
         server = Server(application)
-        server.serve()
+        server.watch('static/css/*.css')
+        server.watch('static/js/*.js')
+        server.watch('static/img/*')
+        server.watch('static/libs/**/*')
+        server.watch('templates/**/*.html')
+        server.watch('*/templates/**/*.html*')
+        server.serve(port=8000)
     else:
         execute_from_command_line(sys.argv)

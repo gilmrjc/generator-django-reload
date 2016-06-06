@@ -28,7 +28,7 @@ gulp.task('styles-dev', function() {
     .pipe(plugins.order(['**/normalize.css', '*']))
     .pipe(plugins.concat('style.css'))
     .pipe(plugins.sourcemaps.write())
-    .pipe(gulp.dest('static/css'))
+    .pipe(gulp.dest('static/css'));
 });
 
 gulp.task('styles', function() {
@@ -55,8 +55,7 @@ gulp.task('minify-css', ['styles'], function() {
 gulp.task('eslint-dev', function() {
   return gulp.src(['static/js/**/*.js', '*/static/js/**/*.js'])
     .pipe(plugins.eslint())
-    .pipe(plugins.eslint.format())
-    .pipe(plugins.livereload());
+    .pipe(plugins.eslint.format());
 });
 
 gulp.task('eslint', function() {
@@ -75,7 +74,6 @@ gulp.task('uglify', ['eslint'], function() {
 gulp.task('watch', function() {
   gulp.watch('static/scss/**/*.scss', ['styles-dev']);
   gulp.watch(['static/js/*', '*/static/js/*'], ['eslint-dev']);
-  gulp.watch(['templates/**/*.html', '*/templates/**/*.html']);
 });
 
 gulp.task('clean', function(callback) {
