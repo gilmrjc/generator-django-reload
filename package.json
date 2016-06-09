@@ -1,6 +1,6 @@
 {
   "name": "generator-django-reload",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Django generator with live-relod and front-end support",
   "homepage": "",
   "author": {
