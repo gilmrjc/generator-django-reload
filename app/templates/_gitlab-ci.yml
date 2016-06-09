@@ -1,7 +1,14 @@
-image: python:3.4
-
-all_test:
+python3.4:
+  stage: test
+  image: python:3.4
   script:
-    - sh ./sh_scripts/install.sh
+    - sh ./sh_scripts/test.sh
     - python3 manage.py test -k
     - export
+
+python3.5:
+  stage: test
+  image: python:3.5
+  script:
+    - sh ./sh_scripts/test.sh
+    - python3 manage.py test -k

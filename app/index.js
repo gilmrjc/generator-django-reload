@@ -277,6 +277,13 @@ module.exports = yeoman.Base.extend({
       );
     },
 
+    bash: function() {
+      this.fs.copy(
+        this.templatePath('sh_scripts/test.sh'),
+        this.destinationPath('sh_scripts/test.sh')
+      );
+    },
+
     requirements: function () {
       this.fs.copy(
         this.templatePath('requirements.txt'),
